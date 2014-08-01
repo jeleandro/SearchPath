@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>gephi-parent</artifactId>
+        <groupId>org.gephi</groupId>
+        <version>0.8.2</version>
+        <relativePath>../..</relativePath>
+    </parent>
+
+    <groupId>com.eleandro.gephi.searchpath</groupId>
+    <artifactId>searchpath-plugin</artifactId>
+    <version>0.8.2</version>
+    <packaging>nbm</packaging>
+
+    <name>SearchPathPlugin</name>
+
+    <dependencies>
+        
+        
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>statistics-plugin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>io-processor-plugin</artifactId>
+        </dependency> 
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>io-exporter-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>io-exporter-plugin</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>io-importer-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>ui-library-wrapper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>data-attributes-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>dynamic-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>graph-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>project-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>statistics-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>utils-longtask</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${parent.groupId}</groupId>
+            <version>${parent.version}</version>
+            <artifactId>core-library-wrapper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-util-lookup</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-awt</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>nbm-maven-plugin</artifactId>
+                <configuration>
+                    <publicPackages>
+                        <publicPackage>com.eleandro.gephi.plugin.searchpath.*</publicPackage>
+                    </publicPackages>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
