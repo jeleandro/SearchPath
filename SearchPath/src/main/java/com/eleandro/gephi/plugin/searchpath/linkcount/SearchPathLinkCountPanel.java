@@ -276,7 +276,7 @@ public class SearchPathLinkCountPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         panelMetodologyOptions.add(lbMinimumDifference, gridBagConstraints);
 
-        cbWeight.setModel(new com.eleandro.gephi.plugin.searchpath.MetadadosModel(com.eleandro.gephi.plugin.searchpath.MetadadosModel.Type.EDGE));
+        cbWeight.setModel(new com.eleandro.gephi.plugin.searchpath.MetadadosComboModel(com.eleandro.gephi.plugin.searchpath.MetadadosComboModel.Type.EDGE));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;

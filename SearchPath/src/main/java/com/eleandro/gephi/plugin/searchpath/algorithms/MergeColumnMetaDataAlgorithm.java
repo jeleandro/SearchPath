@@ -11,7 +11,6 @@ import com.eleandro.gephi.plugin.searchpath.Path;
 import java.util.List;
 import org.gephi.data.attributes.api.AttributeModel;
 import org.gephi.graph.api.Edge;
-import org.gephi.graph.api.Graph;
 import org.gephi.utils.longtask.spi.LongTask;
 import org.gephi.utils.progress.ProgressTicket;
 

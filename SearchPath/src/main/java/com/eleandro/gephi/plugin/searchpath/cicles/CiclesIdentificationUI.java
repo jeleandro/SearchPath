@@ -4,7 +4,6 @@
  */
 package com.eleandro.gephi.plugin.searchpath.cicles;
 
-import java.text.MessageFormat;
 import java.text.NumberFormat;
 import javax.swing.JPanel;
 import org.gephi.statistics.spi.Statistics;
@@ -73,9 +72,10 @@ public class CiclesIdentificationUI implements StatisticsUI {
         //The position control the order the metric front-end are displayed. 
         //Returns a value between 1 and 1000, that indicates the position. 
         //Less means upper.
-        return 801;
+        return 803;
     }
 
+    @Override
     public String getShortDescription() {
         return "Cicles";
     }

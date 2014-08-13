@@ -20,6 +20,7 @@ public class PathLCComparator implements Comparator<Path> {
     }
 
     //reverse order
+    @Override
     public int compare(Path o1, Path o) {
         o1.calculateStats();
         o.calculateStats();
@@ -36,9 +37,6 @@ public class PathLCComparator implements Comparator<Path> {
                 }
             }
         }
-
-
-
 
         return (int) Math.round(result);
     }

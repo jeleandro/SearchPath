@@ -82,6 +82,7 @@ public class SearchPathLinkCountUI implements StatisticsUI {
         return 800;
     }
 
+    @Override
     public String getShortDescription() {
         return "SPLC";
     }

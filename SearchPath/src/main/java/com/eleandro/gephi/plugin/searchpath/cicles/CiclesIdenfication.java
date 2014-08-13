@@ -100,10 +100,12 @@ public class CiclesIdenfication implements Statistics, CancelableLongTask, LongT
      *
      * @param progressTicket
      */
+    @Override
     public void setProgressTicket(ProgressTicket progressTicket) {
         this.progress = progressTicket;
     }
 
+    @Override
     public void execute(GraphModel graphModel, AttributeModel attributeModel) {
         messages = new ArrayList<String>();
 
@@ -136,6 +138,7 @@ public class CiclesIdenfication implements Statistics, CancelableLongTask, LongT
         return cicleRate;
     }
 
+    @Override
     public boolean cancel() {
          cancel = true;
          return true;

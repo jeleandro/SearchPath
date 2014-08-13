@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.JEditorPane;
 import javax.swing.JScrollPane;
+import javax.swing.text.html.HTMLEditorKit;
 import org.gephi.graph.api.*;
 import org.gephi.utils.longtask.spi.LongTask;
 import org.gephi.utils.progress.ProgressTicket;
@@ -108,6 +109,8 @@ public final class AutomaticCicleDeletionPlugin implements ActionListener, Cance
 
 
         JEditorPane area = new JEditorPane();
+        area.setContentType("text/html");
+        area.setEditorKit(new HTMLEditorKit());
         area.setText(text);
 
         JScrollPane scroll = new JScrollPane();

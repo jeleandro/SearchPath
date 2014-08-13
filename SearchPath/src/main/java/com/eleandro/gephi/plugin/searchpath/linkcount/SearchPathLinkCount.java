@@ -6,7 +6,6 @@ import com.eleandro.gephi.plugin.searchpath.cicles.CicleException;
 import com.eleandro.gephi.plugin.searchpath.report.HtmlReport;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

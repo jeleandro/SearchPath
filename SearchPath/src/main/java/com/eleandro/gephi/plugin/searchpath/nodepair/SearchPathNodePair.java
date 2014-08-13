@@ -5,7 +5,6 @@ package com.eleandro.gephi.plugin.searchpath.nodepair;
 
 import com.eleandro.gephi.plugin.searchpath.*;
 import com.eleandro.gephi.plugin.searchpath.cicles.CicleException;
-import com.eleandro.gephi.plugin.searchpath.SearchPathConfig;
 import com.eleandro.gephi.plugin.searchpath.report.HtmlTable;
 import java.util.*;
 import javax.naming.OperationNotSupportedException;
@@ -34,9 +33,6 @@ public class SearchPathNodePair implements Statistics, LongTask, CancelableLongT
     //variáveis de sessao, limpar apos uso!!!
     private List<String> errors = new LinkedList<String>();
     private List<String> reportList = new LinkedList<String>();
-    private List<String> debugMessages = new LinkedList<String>();
-    private static final boolean DEBUG = true;
-    private boolean isDirected;
     private float avgNodePair = 0;
     private List<Node> startNodes;
     private List<Node> endNodes;
@@ -49,16 +45,15 @@ public class SearchPathNodePair implements Statistics, LongTask, CancelableLongT
         cancel = false;
         Graph graph = graphModel.getGraphVisible();
         graph.readLock();
-        isDirected = graph instanceof DirectedGraph;
 
-        HierarchicalDirectedGraph directedGraph = null;
-        if (isDirected) {
-            directedGraph = graph.getGraphModel().getHierarchicalDirectedGraphVisible();
+        if (graph instanceof DirectedGraph) {
+            graph = graph.getGraphModel().getHierarchicalDirectedGraphVisible();
+        }else{
+            return;
         }
 
         errors.clear();
         reportList.clear();
-        debugMessages.clear();
 
         try {
             Progress.start(progressTicket, graph.getNodeCount() * 3);
@@ -79,7 +74,7 @@ public class SearchPathNodePair implements Statistics, LongTask, CancelableLongT
             AttributeHelper.createDouble(attributeModel.getNodeTable(), ColumnConstants.NP_TO_FROM);
 
             //criando o nodePair
-            calculateNodePair(directedGraph);
+            calculateNodePair(graph);
 
             if (errors.size() > 0) {
                 return;
@@ -157,8 +152,8 @@ public class SearchPathNodePair implements Statistics, LongTask, CancelableLongT
         if (config.getNumberOfPathToBeMerged() > 0) {
             Path[] arr = listPaths(new ArrayList<Path>(paths.values()), config.getNumberOfPathToBeMerged() );
             String baseCol = ColumnConstants.SPLC_PATH_MERGE;
-            for (int i = 0; i < arr.length; i++) {
-                List<Edge> ee = arr[i].getEdges();
+            for (Path arr1 : arr) {
+                List<Edge> ee = arr1.getEdges();
                 for (Edge e : ee) {
                     //marcando os nós e arestas como 1
                     e.getAttributes().setValue(baseCol, ONE);
@@ -194,7 +189,7 @@ public class SearchPathNodePair implements Statistics, LongTask, CancelableLongT
      * @param graph grafo direcionado para calcular o grau de entrada edges
      * saida
      */
-    public void calculateNodePair(HierarchicalDirectedGraph graph) throws OperationNotSupportedException {
+    public void calculateNodePair(Graph graph) throws OperationNotSupportedException {
         avgNodePair = 0.0f;
         calculateNodePairFromTo(graph);
         calculateNodePairToFrom(graph);
@@ -219,7 +214,7 @@ public class SearchPathNodePair implements Statistics, LongTask, CancelableLongT
 
     }
 
-    private void calculateNodePairFromTo(HierarchicalDirectedGraph graph) throws OperationNotSupportedException {
+    private void calculateNodePairFromTo(Graph graph) throws OperationNotSupportedException {
         HashMap<Node, HashSet<Node>> successors = new HashMap<Node, HashSet<Node>>();
         HashSet<Node> completed = new HashSet<Node>();
         for (Node n : graph.getNodes()) {

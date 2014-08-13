@@ -809,7 +809,7 @@
         <Component class="javax.swing.JComboBox" name="cbWeight">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new com.eleandro.gephi.plugin.searchpath.MetadadosModel(com.eleandro.gephi.plugin.searchpath.MetadadosModel.Type.EDGE)" type="code"/>
+              <Connection code="new com.eleandro.gephi.plugin.searchpath.MetadadosComboModel(com.eleandro.gephi.plugin.searchpath.MetadadosComboModel.Type.EDGE)" type="code"/>
             </Property>
           </Properties>
           <Constraints>

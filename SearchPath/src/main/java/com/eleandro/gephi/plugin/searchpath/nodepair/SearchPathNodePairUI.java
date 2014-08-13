@@ -77,9 +77,10 @@ public class SearchPathNodePairUI implements StatisticsUI {
         //The position control the order the metric front-end are displayed. 
         //Returns a value between 1 and 1000, that indicates the position. 
         //Less means upper.
-        return 800;
+        return 802;
     }
 
+    @Override
     public String getShortDescription() {
         return STATITICS_NAME;
     }

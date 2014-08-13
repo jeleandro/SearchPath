@@ -4,39 +4,36 @@
  */
 package com.eleandro.gephi.plugin.searchpath.nodepair;
 
-import com.eleandro.gephi.plugin.searchpath.linkcount.PathLCComparator;
 import com.eleandro.gephi.plugin.searchpath.Path;
+import com.eleandro.gephi.plugin.searchpath.linkcount.PathLCComparator;
 import java.util.Comparator;
 
 /**
  *
  * @author eleandro
  */
-public class PathNPComparator implements Comparator<Path>{
+public class PathNPComparator implements Comparator<Path> {
+
     private static final PathLCComparator INSTANCE = new PathLCComparator();
-    
-    public static final PathLCComparator getInstance(){
+
+    public static final PathLCComparator getInstance() {
         return INSTANCE;
     }
-    
-    public int compare(Path o1, Path o) {
+
+    @Override
+     public int compare(Path o1, Path o) {
         o1.calculateStats();
         o.calculateStats();
-        if(o1.getNodePairTotal() > o.getNodePairTotal()){
-            return -1;
-        } else if (o1.getLinkCountTotal() < o.getLinkCountTotal()) {
-            return 1;
-        } else {
-            //desempatando
-            if (o1.getLinkCountTotal() > o.getLinkCountTotal()) {
-                return -1;
-            }else if (o1.getEdges().size() > o.getEdges().size()) {
-                return -1;
-            } else if (o1.getStartNode().getId() > o.getStartNode().getId()) {
-                return -1;
+
+        int result = (int)Math.round(o.getNodePairTotal() - o1.getNodePairTotal());
+
+        if (result == 0) {
+            result = o.getEdges().size() - o1.getEdges().size();
+            if (result == 0) {
+                result = o.getStartNode().getId() - o1.getStartNode().getId();
             }
         }
-        return 0;
+
+        return  result;
     }
-    
 }

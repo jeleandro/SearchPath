@@ -90,7 +90,7 @@ public class NodeToEdgeColumnUI extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         panelMetodologyOptions.add(lbOperation, gridBagConstraints);
 
-        cbFieldOnSource.setModel(new com.eleandro.gephi.plugin.searchpath.MetadadosModel(com.eleandro.gephi.plugin.searchpath.MetadadosModel.Type.NODE));
+        cbFieldOnSource.setModel(new com.eleandro.gephi.plugin.searchpath.MetadadosComboModel(com.eleandro.gephi.plugin.searchpath.MetadadosComboModel.Type.NODE,new String[]{"0","1"}));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -111,7 +111,7 @@ public class NodeToEdgeColumnUI extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         panelMetodologyOptions.add(jLabel1, gridBagConstraints);
 
-        cbFieldOnTarget.setModel(new com.eleandro.gephi.plugin.searchpath.MetadadosModel(com.eleandro.gephi.plugin.searchpath.MetadadosModel.Type.NODE));
+        cbFieldOnTarget.setModel(new com.eleandro.gephi.plugin.searchpath.MetadadosComboModel(com.eleandro.gephi.plugin.searchpath.MetadadosComboModel.Type.NODE,new String[]{"0","1"}));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;

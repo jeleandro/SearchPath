@@ -3,7 +3,6 @@ package com.eleandro.gephi.plugin.searchpath;
 
 
 import com.eleandro.gephi.plugin.searchpath.linkcount.SearchPathLinkCount;
-
 import java.io.File;
 import java.io.FileWriter;
 import org.gephi.data.attributes.api.AttributeController;

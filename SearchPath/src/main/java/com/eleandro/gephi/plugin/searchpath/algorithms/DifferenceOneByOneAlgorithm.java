@@ -5,9 +5,7 @@
 package com.eleandro.gephi.plugin.searchpath.algorithms;
 
 import com.eleandro.gephi.plugin.searchpath.Path;
-import com.eleandro.gephi.plugin.searchpath.linkcount.PathLCComparator;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import org.gephi.utils.progress.Progress;
 

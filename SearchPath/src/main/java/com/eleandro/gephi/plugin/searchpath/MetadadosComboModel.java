@@ -16,34 +16,42 @@ import org.openide.util.Lookup;
  *
  * @author eleandro
  */
-public class MetadadosModel extends DefaultComboBoxModel<String> {
+public class MetadadosComboModel extends DefaultComboBoxModel<String> {
 
     public static enum Type {
 
         NODE, EDGE
     }
 
-    public MetadadosModel(Type type) {
-        super(list(type));
+    public MetadadosComboModel(Type type) {
+        super(list(type,new String[]{"1"}));
+    }
+    
+    public MetadadosComboModel(Type type,String [] predefined){
+        super(list(type,predefined));
     }
 
-    public static String[] list(Type type) {
+    public static String[] list(Type type,String[] predefined) {
         AttributeModel attributeModel = Lookup.getDefault().lookup(AttributeController.class).getModel();
         AttributeTable table;
-        if (type == Type.NODE) {
-            table = attributeModel.getEdgeTable();
-            return listMetadata(table);
+        if (attributeModel == null){
+            return new String[]{"Grafo não encontrado."};
+        }else if (type == Type.NODE) {
+            table = attributeModel.getNodeTable();
+            return listMetadata(table, predefined);
         } else {
             table = attributeModel.getEdgeTable();
         }
-        return listMetadata(table);
+        return listMetadata(table,predefined);
     }
 
-    private static String[] listMetadata(AttributeTable table) {
+    private static String[] listMetadata(AttributeTable table,String[] predefined) {
         AttributeColumn cols[] = table.getColumns();
         ArrayList<String> result = new ArrayList<String>(cols.length + 1);
 
-        result.add("1");
+        for(String p:predefined){
+            result.add(p);
+        }
 
         for (AttributeColumn c : cols) {
             switch (c.getType()) {

@@ -10,14 +10,12 @@
 
     <groupId>com.eleandro.gephi.searchpath</groupId>
     <artifactId>searchpath-plugin</artifactId>
-    <version>0.8.2</version>
+    <version>1.2</version>
     <packaging>nbm</packaging>
 
     <name>SearchPathPlugin</name>
 
     <dependencies>
-        
-        
         <dependency>
             <groupId>${parent.groupId}</groupId>
             <version>${parent.version}</version>
@@ -96,19 +94,9 @@
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-awt</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-filesystems</artifactId>
+        </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>nbm-maven-plugin</artifactId>
-                <configuration>
-                    <publicPackages>
-                        <publicPackage>com.eleandro.gephi.plugin.searchpath.*</publicPackage>
-                    </publicPackages>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>

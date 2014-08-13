@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <action>
+        <actionName>build</actionName>
+        <goals>
+            <goal>install</goal>
+            <goal>nbm:cluster</goal>
+        </goals>
+    </action>
+    <action>
+        <actionName>Run ide custom</actionName>
+        <goals>
+            <goal>nbm:cluster-app</goal>
+            <goal>nbm:run-platform</goal>
+        </goals>
+    </action>
+</actions>
