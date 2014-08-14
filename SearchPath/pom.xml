@@ -10,7 +10,8 @@
 
     <groupId>com.eleandro.gephi.searchpath</groupId>
     <artifactId>searchpath-plugin</artifactId>
-    <version>1.2</version>
+    <url></url>
+    <version>3.0</version>
     <packaging>nbm</packaging>
 
     <name>SearchPathPlugin</name>

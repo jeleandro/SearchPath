@@ -34,7 +34,7 @@ id = "com.eleandro.gephi.plugin.searchpath.cicles.AutomaticCicleDeletionPlugin")
 @ActionReferences({
     @ActionReference(path = "Menu/Plugins", position = 3333)
 })
-@NbBundle.Messages("CTL_AutomaticCicleDeletion=Automatic Remove Cicle")
+@NbBundle.Messages("CTL_AutomaticCicleDeletion=Automatic Cicle Remover")
 public final class AutomaticCicleDeletionPlugin implements ActionListener, CancelableLongTask, LongTask {
 
     private static final Class KLASS = AutomaticCicleDeletionPlugin.class;
